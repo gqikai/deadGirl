@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="gal">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div id="container" ng-controller="mainController">
+    <div id="background"></div>
+    <div id="characters">
+        <img src="data/chara/chan_angry.png"/>
+    </div>
+    <div id="dialogue-box" ng-click="next()">
+        <p class="name">{{name}}</p>
+        <p class="dialogue" >{{dialogue}}</p>
+        <div id="options">
+            <img src="data/image/m_load_1.png"/>
+            <img src="data/image/m_load_2.png"/>
+            <img src="data/image/m_auto_1.png"/>
+            <img src="data/image/m_auto_2.png"/>
+            <img src="data/image/m_log_1.png"/>
+            <img src="data/image/m_log_2.png"/>
+            <img src="data/image/m_skip_1.png"/>
+            <img src="data/image/m_skip_2.png"/>
+
+            <img class="close" src="data/image/m_delete_1.png"/>
+
+        </div>
+    </div>
+    <div id="selections">
+        <p style="background: url(data/image/m_sele_1.png) no-repeat">
+            hello world!
+        </p>
+        <p style="background: url(data/image/m_sele_2.png) no-repeat">
+            hello world!
+        </p>
+    </div>
+</div>
+</body>
+<script src="libs/angular.js"></script>
+<script src="script/galScript.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/services/plotService.js"></script>
+<script src="js/services/scriptService.js"></script>
+</html>

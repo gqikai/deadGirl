@@ -1,0 +1,65 @@
+#container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    background-image: url(../data/bgimage/bg01.jpg);
+}
+#characters {
+    position: absolute;
+    z-index: 2;
+}
+#dialogue-box {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-image: url(../data/image/m_frame.png);
+}
+#dialogue-box .name {
+    padding-top: 355px;
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+    width: 600px;
+    height: 20px;
+}
+#dialogue-box .dialogue {
+    padding-top: 40px;
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+    width: 600px;
+    height: 150px;
+}
+#options {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+#options img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#options .close {
+    bottom: 200px;
+    right: 20px;
+}
+#selections {
+    z-index: 4;
+    position: absolute;
+    width: 511px;
+    margin-top: 100px;
+    margin-left: 150px;
+}
+#selections p {
+    margin-top: 20px;
+    line-height: 59px;
+    font-size: 20px;
+    padding-left: 40px;
+    width: 511px;
+    height: 59px;
+    color: white;
+}
