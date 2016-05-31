@@ -1,0 +1,52 @@
+#load-container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    background-image: url(../data/image/sl_load.jpg);
+}
+#pages li:nth-of-type(1) {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    width: 152px;
+    height: 148px;
+    background: url(../data/image/sl_1_1.png);
+}
+#pages li:nth-of-type(1):hover {
+    background: url(../data/image/sl_1_2.png);
+}
+#pages li:nth-of-type(2) {
+    position: absolute;
+    right: 48px;
+    top: 0;
+    width: 152px;
+    height: 148px;
+    background: url(../data/image/sl_2_1.png);
+}
+#pages li:nth-of-type(2):hover {
+    background: url(../data/image/sl_2_2.png);
+}
+#pages li:nth-of-type(3) {
+    position: absolute;
+    right: 120px;
+    top: 0;
+    width: 152px;
+    height: 148px;
+    background: url(../data/image/sl_3_1.png);
+}
+#pages li:nth-of-type(3):hover {
+     background: url(../data/image/sl_3_2.png);
+ }
+#saved-data {
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    width: 700px;
+    height: 450px;
+    background-color: pink;
+}
+#daved-data li {
+    float: left;
+
+}

@@ -1,4 +1,4 @@
-var gal = angular.module('gal', []);
+var gal = angular.module('gal', ['ngRoute']);
 gal.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
@@ -8,11 +8,11 @@ gal.config(['$routeProvider',
             })
             .when('/game', {
                 controller: 'gameController',
-                templateUrl: 'view/main-title.html'
+                templateUrl: 'view/game.html'
             })
-            .when('/main-title', {
-                controller: 'mainTitleController',
-                templateUrl: 'view/main-title.html'
+            .when('/load', {
+                controller: 'loadController',
+                templateUrl: 'view/load.html'
             })
             .otherwise({redirectTo: '/main-title'});
     }])

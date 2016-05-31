@@ -1,5 +1,5 @@
 angular.module('gal')
-    .controller('mainController', function ($scope, plotService) {
+    .controller('gameController', function ($scope, plotService) {
         'use strict';
 
         //$scope.next = function () {

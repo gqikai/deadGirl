@@ -1,0 +1,26 @@
+<div id="game-container" ng-click="next()">
+    <div id="background"></div>
+    <div id="characters">
+        <img src="data/chara/chan_angry.png"/>
+    </div>
+    <div id="dialogue-box" ng-controller="dialogueController">
+        <p class="name">{{name}}</p>
+        <p class="dialogue">{{dialogue}}</p>
+    </div>
+    <div id="options" ng-controller="optionController">
+        <div class="img-area" ng-repeat="option in options" ng-style="option.imgArea">
+            <div class="button-area" ng-style="option" ng-mouseenter="mouseenter(option)" ng-mouseleave="mouseleave(option)" ng-click="click(option, $event)">
+
+            </div>
+        </div>
+
+
+        <img class="close" src="data/image/m_delete_1.png"/>
+    </div>
+    <div id="selections" ng-controller="selectController" ng-show="selection.show">
+        <p ng-repeat="selection in selection.selections" ng-click="playerSelect(selection, $event)">
+            {{selection[0]}}
+        </p>
+
+    </div>
+</div>

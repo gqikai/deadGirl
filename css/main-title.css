@@ -1,0 +1,18 @@
+#main-title-container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    background-image: url(../data/bgimage/title.jpg);
+}
+#menu {
+    position: absolute;
+    bottom: 0;
+    left: 90px;
+}
+#menu .menu-item {
+    width: 91px;
+    height: 37px;
+    background: url(../data/image/t_end_1.png);
+    margin-bottom: 20px;
+}
