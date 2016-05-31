@@ -5,7 +5,11 @@ angular.module('gal')
             return scriptService.next();
         }
 
+        var playerSelect = function (selection) {
+            scriptService.jumpTo(selection[1]);
+        }
         return {
-            next : next
+            next : next,
+            playerSelect : playerSelect
         };
     });

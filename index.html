@@ -7,42 +7,40 @@
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-<div id="container" ng-controller="mainController">
+<div id="container" ng-controller="mainController" ng-click="next()">
     <div id="background"></div>
     <div id="characters">
         <img src="data/chara/chan_angry.png"/>
     </div>
-    <div id="dialogue-box" ng-click="next()">
+    <div id="dialogue-box" ng-controller="dialogueController">
         <p class="name">{{name}}</p>
-        <p class="dialogue" >{{dialogue}}</p>
-        <div id="options">
-            <img src="data/image/m_load_1.png"/>
-            <img src="data/image/m_load_2.png"/>
-            <img src="data/image/m_auto_1.png"/>
-            <img src="data/image/m_auto_2.png"/>
-            <img src="data/image/m_log_1.png"/>
-            <img src="data/image/m_log_2.png"/>
-            <img src="data/image/m_skip_1.png"/>
-            <img src="data/image/m_skip_2.png"/>
-
-            <img class="close" src="data/image/m_delete_1.png"/>
-
-        </div>
+        <p class="dialogue">{{dialogue}}</p>
     </div>
-    <div id="selections">
-        <p style="background: url(data/image/m_sele_1.png) no-repeat">
-            hello world!
+    <div id="options" ng-controller="optionController">
+        <div class="img-area" ng-repeat="option in options" ng-style="option.imgArea">
+            <div class="button-area" ng-style="option" ng-mouseenter="mouseenter(option)" ng-mouseleave="mouseleave(option)" ng-click="click(option, $event)">
+
+            </div>
+        </div>
+
+
+        <img class="close" src="data/image/m_delete_1.png"/>
+    </div>
+    <div id="selections" ng-controller="selectController" ng-show="selection.show">
+        <p ng-repeat="selection in selection.selections" ng-click="playerSelect(selection, $event)">
+            {{selection[0]}}
         </p>
-        <p style="background: url(data/image/m_sele_2.png) no-repeat">
-            hello world!
-        </p>
+
     </div>
 </div>
 </body>
 <script src="libs/angular.js"></script>
-<script src="script/galScript.js"></script>
+<script src="script/testSelection.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/mainController.js"></script>
+<script src="js/controllers/dialogueController.js"></script>
+<script src="js/controllers/selectController.js"></script>
+<script src="js/controllers/optionController.js"></script>
 <script src="js/services/plotService.js"></script>
 <script src="js/services/scriptService.js"></script>
 </html>

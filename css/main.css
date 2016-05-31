@@ -33,15 +33,26 @@
     height: 150px;
 }
 #options {
+    z-index: 5;
     position: absolute;
     bottom: 0;
     right: 0;
 
 }
-#options img {
+#options .img-area {
     position: absolute;
     right: 0;
     bottom: 0;
+    width: 130px;
+    height: 220px;
+}
+#options .button-area {
+    z-index: 6;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    bottom: 90px;
 }
 #options .close {
     bottom: 200px;
@@ -55,6 +66,7 @@
     margin-left: 150px;
 }
 #selections p {
+    background: url(../data/image/m_sele_1.png) no-repeat;
     margin-top: 20px;
     line-height: 59px;
     font-size: 20px;
@@ -62,4 +74,7 @@
     width: 511px;
     height: 59px;
     color: white;
+}
+#selections p:hover {
+    background: url(../data/image/m_sele_2.png) no-repeat;
 }

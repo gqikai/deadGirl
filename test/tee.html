@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html id="ng-app" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+<body ng-controller="parent">
+<div ng-click="click('parent',$event)">
+
+    <button ng-controller="child" ng-click="click('button',$event)">button</button>
+
+</div>
+</body>
+<script src="../libs/angular.js"></script>
+<script>
+    angular.module("app",[])
+            .controller("parent",[function(){
+                var vm = this;
+
+                vm.click = function(name,$event){
+                    console.log(name +" -----called");
+                    if(vm.stopPropagation){
+                        $event.stopPropagation();
+                    }
+                };
+
+                return vm;
+            }])
+            .controller("child",[function(){
+                var vm = this;
+
+                vm.click = function(name,$event){
+                    console.log(name +" -----called");
+                    if(vm.stopPropagation){
+                        $event.stopPropagation();
+                    }
+                };
+
+                return vm;
+            }]);
+</script>
+</html>

@@ -26,29 +26,44 @@ angular.module('gal')
                 token.direction = 'name';
                 //console.log(token.direction.slice(10));
             }
-            return token;
+        }
+
+        var checkComment = function (token) {
+            if(token.direction === 'dialogue' && token.dialogue[0] === ';'){
+                token.direction = 'comment';
+            }
         }
 
         var checkSelection = function(token){
-
-            var seletionArr =  token.direction.split(' ');
-
-            for(var i = 0; i < (seletionArr.length - 1)/2; i ++){
-                var seleArr = arr[i * 2 + 1].spilt('=');
-                var selArr = arr[i * 2 + 2].spilt('=');
-
-            }
-
-            //console.log(token.direction.slice(0,4));
             if(token.direction.slice(0,4) === 'sele'){
-                token.name = token.direction.slice(10);
-                token.direction = 'name';
-                //console.log(token.direction.slice(10));
+                var seletionArr =  token.direction.split(' ');
+                token.selections = [];
+
+                for(var i = 0; i < (seletionArr.length - 1)/2; i ++){
+                    var seleArr = seletionArr[i * 2 + 1].split('=');
+                    var selArr = seletionArr[i * 2 + 2].split('=');
+
+                    token.selections.push([seleArr[1], selArr[1]]);
+                }
+                token.direction = 'sele';
             }
-            return token;
         }
 
+        var checkJump = function (token) {
+            if(token.direction.slice(0,4) === 'jump'){
+                var string = token.direction;
+                string = token.direction.slice(string.indexOf('"') + 1, string.length - 1);
+                jumpTo(string);
+                token.direction = 'jump';
+                token.terget = string;
+            }
+        }
 
+        var jumpTo = function (string) {
+            script = script.slice(index);
+            index = script.indexOf(string);
+        }
+        
         var next = function () {
             var currentToken = {
                 dialogue: '',
@@ -63,11 +78,13 @@ angular.module('gal')
                 if(currentChar === '['){
                     if(currentToken.dialogue != ''){
                         currentToken.direction = 'dialogue';
+                        checkComment(currentToken);
                         return currentToken;
                     }
                     currentToken.direction = readDirection();
-                    currentToken = checkName(currentToken);
-                    currentToken = checkSelection(currentToken);
+                    checkName(currentToken);
+                    checkSelection(currentToken);
+                    checkJump(currentToken);
 
                     return currentToken;
                 }
@@ -80,6 +97,7 @@ angular.module('gal')
         };
 
         return {
-            next: next
+            next: next,
+            jumpTo : jumpTo
         };
     });
